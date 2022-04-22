@@ -1,29 +1,8 @@
-import "semantic-ui-css/semantic.min.css";
 import { Component } from "react";
 import factory from "../ethereum/factory";
 import { Card, Button } from "semantic-ui-react";
 import Layout from "../components/Layout";
-
-const items = [
-  {
-    header: "Project Report - April",
-    description:
-      "Leverage agile frameworks to provide a robust synopsis for high level overviews.",
-    meta: "ROI: 30%",
-  },
-  {
-    header: "Project Report - May",
-    description:
-      "Bring to the table win-win survival strategies to ensure proactive domination.",
-    meta: "ROI: 34%",
-  },
-  {
-    header: "Project Report - June",
-    description:
-      "Capitalise on low hanging fruit to identify a ballpark value added activity to beta test.",
-    meta: "ROI: 27%",
-  },
-];
+import { Link } from "../routes";
 
 class CampaignIndex extends Component {
   static async getInitialProps() {
@@ -37,7 +16,11 @@ class CampaignIndex extends Component {
     const items = this.props.campaigns.map((addr) => {
       return {
         header: addr,
-        description: <a>View Campaign</a>,
+        description: (
+          <Link route={`/campaigns/${addr}`}>
+            <a>View Campaign</a>
+          </Link>
+        ),
         fluid: true,
       };
     });
@@ -50,8 +33,18 @@ class CampaignIndex extends Component {
       <Layout>
         <div>
           <h3>Open Campaign</h3>
+          <Link route="/campaigns/new">
+            <a className="item">
+              <Button
+                floated="right"
+                content="Create Campaign"
+                icon="add circle"
+                primary
+              />
+            </a>
+          </Link>
+
           {this.renderCampaigns()}
-          <Button content="Create Campaign" icon="add circle" primary />
         </div>
       </Layout>
     );

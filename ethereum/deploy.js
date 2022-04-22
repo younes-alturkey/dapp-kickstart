@@ -29,5 +29,5 @@ const deploy = async () => {
 };
 deploy();
 
-("Attempting to deploy from account 0x2ea8c3B2C60AacC249A3734498CE0272D0FF890d");
-("Contract deployed to 0x356Dfcd662d73E5E15913EdFBEae0fc522b423EA");
+// Attempting to deploy from account 0x73a53B62e804EE8145061d49635755AE92755e2C
+// Contract deployed to 0x931c98d31D59C33C26Af98b17a3Dff9a64b413c2
